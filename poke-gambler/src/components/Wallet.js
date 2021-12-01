@@ -8,18 +8,35 @@ const extra = (
     <Button compact floated="right">Trade</Button>
     <Button compact color="green" floated="right">List</Button>
     
-  </a>
-  
+  </a> 
 )
 
-class Wallet extends Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
-        return(
-        <div className="ui grid stackable" style ={{padding: "25px" }}>
-            <div class="four wide column"> 
+const widthStyling = ["ui stackable four column grid","ui stackable three column grid","ui stackable two column grid"]; // changes in grid width
+let walletWidth = widthStyling[0]; // default is four column width
+function Wallet1 (){
+
+    const [width, setDimensions] = React.useState(window.innerWidth);
+    React.useEffect(() => {
+        const handleResize = () =>{ // define the what it will do when it resizes
+            setDimensions(window.innerWidth);  //update innerwidth
+
+            if(width <= 990){// check window.innerwidth and change according to px width
+                walletWidth = widthStyling[2];
+            }
+            else if(width <= 1200){
+                walletWidth = widthStyling[1];
+            }
+            else if (width > 1200){
+                walletWidth = widthStyling[0];
+            }
+            
+        };
+        window.addEventListener("resize", handleResize); //listen for resizing
+    })
+
+    return(
+        <div className={walletWidth} style ={{padding: "25px" }}>
+            <div class="column"> 
                 <Card
                 image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                 header='Ditto'
@@ -28,7 +45,7 @@ class Wallet extends Component{
                 extra={extra}
                 />
             </div>
-            <div class="four wide column">
+            <div class="column">
                 <Card
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
@@ -37,7 +54,7 @@ class Wallet extends Component{
                     extra={extra}
                 />
             </div>
-            <div class="four wide column">
+            <div class="column">
                 <Card
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
@@ -46,7 +63,7 @@ class Wallet extends Component{
                     extra={extra}
                 />
             </div>
-            <div class="four wide column">
+            <div class="column">
                 <Card
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
@@ -55,7 +72,7 @@ class Wallet extends Component{
                     extra={extra}
                 />
             </div>
-            <div class="four wide column">
+            <div class="column">
                 <Card
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
@@ -67,7 +84,6 @@ class Wallet extends Component{
         </div>
         
         )
-    }
 }
 
-export default Wallet
+export default Wallet1
