@@ -4,9 +4,13 @@ import { Container, Button } from 'semantic-ui-react';
 import Wallet1 from './components/Wallet'
 
 
+
+
 const fetchDitto = () =>{ //fetches ditto sprite url
-  let sprite = fetch("https://pokeapi.co/api/v2/pokemon/ditto");
-  console.log(sprite);
+  let pokemon = fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+                  .then(response => response.json())
+                  .then(data => console.log(data));
+  createCard(pokemon);
 }
 
 function App() {
