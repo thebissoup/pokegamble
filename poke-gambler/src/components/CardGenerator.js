@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, Icon, Button, Visibility } from 'semantic-ui-react';
+import {Card, Icon, Button} from 'semantic-ui-react';
 
 
 const extra = (
