@@ -41,7 +41,7 @@ function Wallet1 (){
                 image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                 header='Ditto'
                 meta='Normal'
-                description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                description='Ditto (メタモン Metamon) is a Normal-type Pokémon introduced in Generation I.'
                 extra={extra}
                 />
             </div>
@@ -50,7 +50,7 @@ function Wallet1 (){
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
                     meta='Normal'
-                    description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                    description='Ditto (メタモン Metamon) is a Normal-type Pokémon introduced in Generation I.'
                     extra={extra}
                 />
             </div>
@@ -59,7 +59,7 @@ function Wallet1 (){
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
                     meta='Normal'
-                    description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                    description='Ditto (メタモン Metamon) is a Normal-type Pokémon introduced in Generation I.'
                     extra={extra}
                 />
             </div>
@@ -68,7 +68,7 @@ function Wallet1 (){
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
                     meta='Normal'
-                    description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                    description='Ditto (メタモン Metamon) is a Normal-type Pokémon introduced in Generation I.'
                     extra={extra}
                 />
             </div>
@@ -77,7 +77,7 @@ function Wallet1 (){
                     image='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                     header='Ditto'
                     meta='Normal'
-                    description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                    description='Ditto (メタモン Metamon) is a Normal-type Pokémon introduced in Generation I.'
                     extra={extra}
                 />
             </div>
