@@ -13,6 +13,9 @@ const extra = (
 )
 
 class Wallet extends Component{
+    constructor(props){
+        super(props)
+    }
     render(){
         return(
         <div className="ui grid stackable" style ={{padding: "25px" }}>
