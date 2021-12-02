@@ -6,9 +6,10 @@ const extra = (
     <a>
       <Icon name='bitcoin' />
       0.000000
-      
     </a> 
   )
+
+const pokemonNames = ["ditto","pikachu","bulbasaur","charmander","mew","omanyte"];
 
 class CardGenerator extends Component{
     constructor(props){
@@ -20,16 +21,27 @@ class CardGenerator extends Component{
             description: 'A blank and empty card...'
         }
         this.fetchPokemon = this.fetchPokemon.bind(this);  
+        this.getRandoName = this.getRandoName.bind(this);
+        this.getRandoPokemon = this.getRandoPokemon.bind(this);
+
     }
-    async fetchPokemon(){
-        let url = "https://pokeapi.co/api/v2/pokemon/ditto";
+    getRandoPokemon(){
+       let randomName =  this.getRandoName();
+       this.fetchPokemon(randomName);
+    }
+    getRandoName(){
+        let randomNumber = Math.floor(Math.random()*pokemonNames.length);
+        console.log(randomNumber);
+        return pokemonNames[randomNumber];
+    }
+    async fetchPokemon(name){
+
+        let url = "https://pokeapi.co/api/v2/pokemon/" + name;
         let pokemon;
         await fetch(url) //fetch the pokemon data
                 .then(response => response.json())
                 .then(data => pokemon = data);
-        console.log(pokemon);
-
-
+       
         const labelName = (string) =>{ // capitalize string for header & meta
             return string.charAt(0).toUpperCase() + string.slice(1)
         };
@@ -56,7 +68,7 @@ class CardGenerator extends Component{
                         description={this.state.description}
                         extra={extra}
                     />
-                    <Button compact color="blue" onClick={this.fetchPokemon}>Draw</Button>
+                    <Button compact color="blue" onClick={this.getRandoPokemon}>Draw</Button>
                 </div>
             </div>
         )
