@@ -1,5 +1,5 @@
 import './App.css';
-import { Container} from 'semantic-ui-react';
+import { Container, Popup} from 'semantic-ui-react';
 import Wallet1 from './components/Wallet'
 import CardGenerator from './components/CardGenerator';
 

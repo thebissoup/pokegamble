@@ -6,16 +6,18 @@ const extra = (
     <a>
       <Icon name='bitcoin' />
       0.000000
+      <Button compact color="blue" floated="right">2D</Button>
+      <Button compact color="green" floated="right">3D</Button>
     </a> 
   )
 
 const pokemonNames = ["ditto","pikachu","bulbasaur","charmander","mew","omanyte"];
-
+let lastNum = -1;
 class CardGenerator extends Component{
     constructor(props){
         super(props);
         this.state = {
-            image:'https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png',
+            image:'https://projectpokemon.org/images/shiny-sprite/charizard.gif',
             header: 'Null',
             meta: 'None',
             description: 'A blank and empty card...'
@@ -29,9 +31,13 @@ class CardGenerator extends Component{
        let randomName =  this.getRandoName();
        this.fetchPokemon(randomName);
     }
-    getRandoName(){
-        let randomNumber = Math.floor(Math.random()*pokemonNames.length);
-        console.log(randomNumber);
+    getRandoName(){ // generate a different random pokemon number each time
+        let randomNumber;
+        do{
+            randomNumber = Math.floor(Math.random()*pokemonNames.length); //set to random num in range
+        }while(lastNum == randomNumber); //if the last number it was is equal randomNumber repeat
+        lastNum = randomNumber;
+        
         return pokemonNames[randomNumber];
     }
     async fetchPokemon(name){
