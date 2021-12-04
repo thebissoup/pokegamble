@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
 import {Card, Icon, Button, Image} from 'semantic-ui-react';
 
-
 const extra = (
-    
     <div>
         <a>
             <Icon name='bitcoin' />
             0.000000
+            <Button compact floated="right">Trade</Button>
+            <Button compact color="green" floated="right">List</Button>
         </a>
     </div>
-    
   )
 
-const pokemonNames = ["bulbasaur","ivysaur","venusaur","charmander","charmeleon","charizard","squirtle","wartortle","blastoise","caterpie","metapod","butterfree","weedle","kakuna","beedrill","pidgey","pidgeotto","pidgeot","rattata","raticate","spearow","fearow","ekans","arbok","pikachu","raichu", "sandshrew","sandslash","nidoran",
-"nidorina","nidoqueen","nidoran","nidorino","nidoking","clefairy","clefable","vulpix","ninetales","jigglypuff","wigglytuff","zubat","golbat","oddish","gloom","vileplume","paras", "parasect","venonat","venomoth","diglett","dugtrio","meowth","persian","psyduck","golduck","mankey","primeape",
-"growlithe","arcanine","poliwag","poliwhirl","poliwrath","abra","kadabra","alakazam","machop","graveler","golem","ponyta","rapidash","slowpoke","slowbro",
-"machoke","machamp","bellsprout","weepinbell","victreebel","tentacool","tentacruel","geodude","magnemite","magneton","farfetch'd","doduo","dodrio","seel","dewgong","grimer","muk","shellder","cloyster","gastly","haunter","gengar","onix","drowzee","hypno","krabby","kingler","voltorb","electrode","exeggcute","exeggutor","cubone","marowak","hitmonlee","hitmonchan","lickitung","koffing","weezing","rhyhorn","rhydon","chansey","tangela","kangaskhan","horsea","seadra","goldeen","seaking","staryu","starmie","scyther","jynx","electabuzz","magmar","pinsir","tauros","magikarp","gyarados","lapras","ditto","eevee","vaporeon","jolteon","flareon","porygon",
-"omanyte","omastar","kabuto","kabutops","aerodactyl","snorlax","articuno","zapdos","moltres","dratini","dragonair","dragonite","mewtwo","mew"
-];
+let slicewords = ["hero","incarnate","g-max"];
 
 let lastNum = -1;
 class CardGenerator extends Component{
     constructor(props){
         super(props);
         this.state = {
-            image:'https://projectpokemon.org/images/shiny-sprite/charizard.gif',
+            image:'https://c.tenor.com/_qKTUm9vp4UAAAAC/animal-crossing-crying.gif',
             header: 'Null',
             meta: 'None',
             description: 'A blank and empty card...',
@@ -48,16 +42,19 @@ class CardGenerator extends Component{
 
     getRandoName(){ // generate a different random pokemon number each time
         let randomNumber;
+        let pokemonNames = this.props.list;
+        // let pokemonNames = this.props.pokelist;
         do{
             randomNumber = Math.floor(Math.random()*pokemonNames.length); //set to random num in range
         }while(lastNum == randomNumber); //if the last number it was is equal randomNumber repeat
         lastNum = randomNumber;
-        return pokemonNames[randomNumber];
+        return pokemonNames[randomNumber].name;
     }
 
     async fetchPokemon(name){
         let url = "https://pokeapi.co/api/v2/pokemon/" + name;
         let pokemon;
+        console.log(name);
 
         await fetch(url) //fetch the pokemon data
                 .then(response => response.json())
