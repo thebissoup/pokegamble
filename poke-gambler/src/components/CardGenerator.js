@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import {Card, Icon, Button, Image} from 'semantic-ui-react';
+import CardDisplay from './CardDisplay';
 
-const extra = (
-    <div>
-        <a>
-            <Icon name='bitcoin' />
-            0.000000
-            <Button compact floated="right">Trade</Button>
-            <Button compact color="green" floated="right">List</Button>
-        </a>
-    </div>
-  )
+
 
 let slicewords = ["hero","incarnate","g-max"];
 
@@ -22,24 +14,31 @@ class CardGenerator extends Component{
             image:'https://c.tenor.com/_qKTUm9vp4UAAAAC/animal-crossing-crying.gif',
             header: 'Null',
             meta: 'None',
-            description: 'A blank and empty card...',
+            description: '...',
             gif: null,
             png: null
             //  replace image with png, add a gif property for 3d, and create image property
         }
+        //------ Data Fetching Methods
         this.fetchPokemon = this.fetchPokemon.bind(this);  
+        this.fetch3DPokemonGif = this.fetch3DPokemonGif.bind(this);
+        //------ Pokemon Selection Method
         this.getRandoName = this.getRandoName.bind(this);
         this.getRandoPokemon = this.getRandoPokemon.bind(this);
-        this.fetch3DPokemonGif = this.fetch3DPokemonGif.bind(this);
+        //----- View Methods
+        this.to3D = this.to3D.bind(this);
+        this.to2D = this.to2D.bind(this);
     
     }
-
+    //-------------------------------------
+    //Desc: runs the  all consecutive functions needed to call API
     getRandoPokemon(){
        let randomName =  this.getRandoName();
        this.fetch3DPokemonGif(randomName);// function that fetches the 3d gif of the pokemon
        this.fetchPokemon(randomName); 
     }
-
+    //-------------------------------------
+    //Desc: picks a random pokemon
     getRandoName(){ // generate a different random pokemon number each time
         let randomNumber;
         let pokemonNames = this.props.list;
@@ -50,8 +49,9 @@ class CardGenerator extends Component{
         lastNum = randomNumber;
         return pokemonNames[randomNumber].name;
     }
-
-    async fetchPokemon(name){
+    //-------------------------------------
+    //Desc: takes the name of a pokemon, fetches the data, and assigns the values to state
+    async fetchPokemon(name){ 
         let url = "https://pokeapi.co/api/v2/pokemon/" + name;
         let pokemon;
         console.log(name);
@@ -69,38 +69,42 @@ class CardGenerator extends Component{
             header:labelName(pokemon.species.name),
             meta:labelName(pokemon.types[0].type.name),
             png:pokemon.sprites.front_default
-        })
-
-        
+        })  
     }
-
+    //-------------------------------------
+    //Desc: takes a pokemon name, fetches the info, and sets the state
     fetch3DPokemonGif(name){
         let imageurl = "https://projectpokemon.org/images/normal-sprite/" + name +".gif";
         this.setState({
             gif: imageurl
         })
     }
-
+    //-------------------------------------
+    //Desc: set image state of card to 3D
+    to3D(){
+        this.setState({
+            image: this.state.gif
+        })
+    }
+    //-------------------------------------
+    //Desc: set image state of card to 2D
+    to2D(){
+        this.setState({
+            image: this.state.png
+        })
+    }
+    //-------------------------------------
     render(){
         return(
-            <div className = "two column ui centered grid">
+            <div className = "one column ui centered grid">
                 <div style={{visibility: 'visible', paddingTop: 20}}>
-                    <Card
-                        image={this.state.image} 
-                        header={this.state.header}
-                        meta={this.state.meta}
-                        description={this.state.description}
-                        extra={extra}
-                    />
-                    <Button compact color="blue" onClick={this.getRandoPokemon}>Draw</Button>
+                    <CardDisplay pokeData={this.state} to3D={this.to3D} to2D={this.to2D}/>
+                    <Button compact color="yellow" onClick={this.getRandoPokemon}>Draw</Button>
                 </div>
-                <div className = "centered">
-                    <Image size="medium"src={this.state.gif}/>
-                </div>
-                
             </div>
         )
     }
 }
+
 
 export default CardGenerator

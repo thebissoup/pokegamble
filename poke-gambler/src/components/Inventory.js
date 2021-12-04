@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import CardGenerator from "./CardGenerator";
 import Wallet1 from "./Wallet";
 import { Button, Container, Popup} from 'semantic-ui-react';
+
 class Inventory extends Component{
     constructor(props){
         super(props);
@@ -11,7 +12,6 @@ class Inventory extends Component{
 
         this.fetchPokemonList = this.fetchPokemonList.bind(this);
     }
-
     componentDidMount(){
         this.fetchPokemonList();
     }
