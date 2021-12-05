@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Card, Icon, Button, Image} from 'semantic-ui-react';
+import { Button} from 'semantic-ui-react';
 import CardDisplay from './CardDisplay';
 
 
 
-let slicewords = ["hero","incarnate","g-max"];
+// let slicewords = ["hero","incarnate","g-max"];
 
 let lastNum = -1;
 class CardGenerator extends Component{
@@ -45,7 +45,7 @@ class CardGenerator extends Component{
         // let pokemonNames = this.props.pokelist;
         do{
             randomNumber = Math.floor(Math.random()*pokemonNames.length); //set to random num in range
-        }while(lastNum == randomNumber); //if the last number it was is equal randomNumber repeat
+        }while(lastNum === randomNumber); //if the last number it was is equal randomNumber repeat
         lastNum = randomNumber;
         return pokemonNames[randomNumber].name;
     }

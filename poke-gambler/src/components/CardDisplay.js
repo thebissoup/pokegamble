@@ -1,29 +1,63 @@
-import React from "react";
-import { Card, Icon, Button } from "semantic-ui-react";
+import React, {Component} from "react";
+import {Icon, Button } from "semantic-ui-react";
 
-const CardDisplay = (props) =>{
+class CardDisplay extends Component{
+    constructor(props){
+        super(props);
+
+        this.state ={
+         SpriteStyling: "sprite",
+         ArStyling: "ar",
+         currentStyling:"sprite"
+        }
+        this.arStyle = this.arStyle.bind(this);
+        this.spriteStyle = this.spriteStyle.bind(this);
+
+    }
+    arStyle(){
+        this.setState({
+            currentStyling: this.state.ArStyling
+        })
+    }
+    spriteStyle(){
+        this.setState({
+            currentStyling: this.state.SpriteStyling
+        })
+    }
+
     
-    return(
-        <div className="side-by-side">
-            <div className="card-special">
-                <div className = "image-offset"><img style={{height: 200, width: 200}} src={props.pokeData.image}/></div>
-                <h1 className="name">{props.pokeData.header}</h1>
-                <p className="sub">{props.pokeData.meta}</p>
-                <div className="card-bar">
-                    <div>
-                    <Button className="card-button" compact color="green" onClick={props.to3D}>3D</Button>
-                    <Button className="card-button" compact color="blue" onClick={props.to2D}>2D</Button>
+    render(){
+        return(
+            
+            <div className="side-by-side">
+                <div className="card-special">
+                    <div className="image-offset" >
+                        <img className={this.state.currentStyling} src={this.props.pokeData.image}/>
                     </div>
-                    <a> 
-                    <Icon name='bitcoin' />
-                    0.000000
-                    </a>
+                    <h1 className="name">{this.props.pokeData.header}</h1>
+                    <p className="sub">{this.props.pokeData.meta}</p>
+                    <div className="card-bar">
+                        <div>
+                        <Button className="card-button" compact color="green" onClick={() =>{
+                            this.props.to3D()
+                            this.arStyle();
+                            }}>3D</Button>
+                        <Button className="card-button" compact color="blue" onClick={() =>{
+                            this.props.to2D();
+                            this.spriteStyle();
+                            }}>2D</Button> 
+                        </div>
+                        <a> 
+                        <Icon name='bitcoin' />
+                        0.000000
+                        </a>
+                    </div>
                 </div>
-            </div>
         </div>
-        
-    )
+    
+        )
+    }
+    
 }
-
 
 export default CardDisplay
