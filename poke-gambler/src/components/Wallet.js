@@ -66,8 +66,8 @@ function Wallet1 (){
                     <p className="sub">Normal</p>
                     <div className="card-bar">
                         <div>
-                        <Button className="card-button" compact color="green">List</Button>
-                        <Button className="card-button" compact >Trade</Button> 
+                        <Button className="card-button" compact color="green">3D</Button>
+                        <Button className="card-button" color="blue" compact >2D</Button> 
                         </div>
                         <a> 
                         <Icon name='bitcoin' />
