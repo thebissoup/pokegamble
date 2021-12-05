@@ -15,9 +15,9 @@ class CardGenerator extends Component{
             header: 'Null',
             meta: 'None',
             description: '...',
-            gif: null,
-            png: null
-            //  replace image with png, add a gif property for 3d, and create image property
+            gif: 'https://c.tenor.com/_qKTUm9vp4UAAAAC/animal-crossing-crying.gif',
+            png: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1AgnhmtdS-1bGbvvU4HzvIAMO1Tae_II9enZjPScAoKE3IGDt5JqxCA2MkxpN-4p0vLc&usqp=CAU"
+            
         }
         //------ Data Fetching Methods
         this.fetchPokemon = this.fetchPokemon.bind(this);  
@@ -100,6 +100,8 @@ class CardGenerator extends Component{
                 <div style={{visibility: 'visible', paddingTop: 20}}>
                     <CardDisplay pokeData={this.state} to3D={this.to3D} to2D={this.to2D}/>
                     <Button compact color="yellow" onClick={this.getRandoPokemon}>Draw</Button>
+                    <Button compact color="red" >Collect</Button>
+
                 </div>
             </div>
         )
