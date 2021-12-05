@@ -13,26 +13,49 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.side-by-side{
+  display: flex;
+  flex-direction: row;
+}
+.card-special{
+  border: 1px solid #D4D4D5;
+  margin: 20px 0 20px 0;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.2);
+  height: 438px;
+  width: 290px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.image-offset{
+  height: 290px;
+  width: 100%;
+  background-color: #F2F2F2;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 5px 5px 0px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.name{
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.sub{
+  color: #9F9F9F;
+}
+
+.card-bar{
+  width: 100%;
+  padding: 29px 15px 0px 15px;
+  flex-grow: 100;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
 }
