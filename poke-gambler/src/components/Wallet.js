@@ -1,15 +1,6 @@
 import React from 'react';
-import {Card, Icon, Button } from 'semantic-ui-react';
+import {Icon, Button } from 'semantic-ui-react';
 
-const extra = (
-  <a>
-    <Icon name='bitcoin' />
-    0.000018
-    <Button compact floated="right">Trade</Button>
-    <Button compact color="green" floated="right">List</Button>
-    
-  </a> 
-)
 
 let cardsData = [{image:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png", name: "Ditto", meta: "Normal", price: 0.00000}];
 
@@ -21,7 +12,7 @@ function Wallet1 (){
             <div class="column">
                 <div className="card-special">
                     <div className="image-offset" >
-                        <img className='sprite' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'/>
+                        <img alt ="Ditto" className='sprite' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'/>
                     </div>
                     <h1 className="name">Ditto</h1>
                     <p className="sub">Normal</p>
@@ -30,7 +21,7 @@ function Wallet1 (){
                         <Button className="card-button" compact color="green">3D</Button>
                         <Button className="card-button" compact color="blue">2D</Button> 
                         </div>
-                        <a> 
+                        <a href='#'> 
                         <Icon name='bitcoin' />
                         0.000000
                         </a>

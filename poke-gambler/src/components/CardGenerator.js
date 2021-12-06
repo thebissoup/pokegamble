@@ -16,12 +16,13 @@ class CardGenerator extends Component{
             meta: 'None',
             description: '...',
             gif: 'https://c.tenor.com/_qKTUm9vp4UAAAAC/animal-crossing-crying.gif',
-            png: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1AgnhmtdS-1bGbvvU4HzvIAMO1Tae_II9enZjPScAoKE3IGDt5JqxCA2MkxpN-4p0vLc&usqp=CAU"
+            png: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1AgnhmtdS-1bGbvvU4HzvIAMO1Tae_II9enZjPScAoKE3IGDt5JqxCA2MkxpN-4p0vLc&usqp=CAU",
+            displayState: "sprite"
             
         }
         //------ Data Fetching Methods
         this.fetchPokemon = this.fetchPokemon.bind(this);  
-        this.fetch3DPokemonGif = this.fetch3DPokemonGif.bind(this);
+        // this.fetch3DPokemonGif = this.fetch3DPokemonGif.bind(this);
         //------ Pokemon Selection Method
         this.getRandoName = this.getRandoName.bind(this);
         this.getRandoPokemon = this.getRandoPokemon.bind(this);
@@ -34,7 +35,6 @@ class CardGenerator extends Component{
     //Desc: runs the  all consecutive functions needed to call API
     getRandoPokemon(){
        let randomName =  this.getRandoName();
-       this.fetch3DPokemonGif(randomName);// function that fetches the 3d gif of the pokemon
        this.fetchPokemon(randomName); 
     }
     //-------------------------------------
@@ -52,11 +52,11 @@ class CardGenerator extends Component{
     //-------------------------------------
     //Desc: takes the name of a pokemon, fetches the data, and assigns the values to state
     async fetchPokemon(name){ 
-        let url = "https://pokeapi.co/api/v2/pokemon/" + name;
+        let spriteurl = "https://pokeapi.co/api/v2/pokemon/" + name;
         let pokemon;
         console.log(name);
 
-        await fetch(url) //fetch the pokemon data
+        await fetch(spriteurl) //fetch the pokemon data
                 .then(response => response.json())
                 .then(data => pokemon = data);
        
@@ -64,33 +64,51 @@ class CardGenerator extends Component{
             return string.charAt(0).toUpperCase() + string.slice(1)
         };
 
-        this.setState({ //setState of card properties
-            image:pokemon.sprites.front_default, // ok for the default
-            header:labelName(pokemon.species.name),
-            meta:labelName(pokemon.types[0].type.name),
-            png:pokemon.sprites.front_default
-        })  
+
+        let ARurl = "https://projectpokemon.org/images/normal-sprite/" + name +".gif";
+
+
+        this.setState({
+            gif: ARurl
+        })
+
+        if(this.state.displayState == "sprite"){
+            this.setState({ //setState of card properties
+                image:pokemon.sprites.front_default, // ok for the default
+                header:labelName(pokemon.species.name),
+                meta:labelName(pokemon.types[0].type.name),
+                png:pokemon.sprites.front_default
+            }) 
+        }else if(this.state.displayState == "ar"){
+            this.setState({ //setState of card properties
+                image:ARurl, // ok for the default
+                header:labelName(pokemon.species.name),
+                meta:labelName(pokemon.types[0].type.name),
+                png:pokemon.sprites.front_default
+            }) 
+        }
+
+         
     }
     //-------------------------------------
     //Desc: takes a pokemon name, fetches the info, and sets the state
-    fetch3DPokemonGif(name){
-        let imageurl = "https://projectpokemon.org/images/normal-sprite/" + name +".gif";
-        this.setState({
-            gif: imageurl
-        })
-    }
+    // fetch3DPokemonGif(name){
+        
+    // }
     //-------------------------------------
     //Desc: set image state of card to 3D
     to3D(){
         this.setState({
-            image: this.state.gif
+            image: this.state.gif,
+            displayState: "ar"
         })
     }
     //-------------------------------------
     //Desc: set image state of card to 2D
     to2D(){
         this.setState({
-            image: this.state.png
+            image: this.state.png,
+            displayState: "sprite"
         })
     }
     //-------------------------------------

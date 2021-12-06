@@ -30,9 +30,6 @@ class CardDisplay extends Component{
         return(
             
             <div className="side-by-side">
-                
-                
-
                 <div className="card-special">
                     <div className="image-offset" >
                         <img className={this.state.currentStyling} src={this.props.pokeData.image}/>
