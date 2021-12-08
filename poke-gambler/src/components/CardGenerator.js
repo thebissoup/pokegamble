@@ -11,11 +11,11 @@ class CardGenerator extends Component{
     constructor(props){
         super(props);
         this.state = {
-            image:'https://c.tenor.com/_qKTUm9vp4UAAAAC/animal-crossing-crying.gif',
+            image:'https://cdn.dribbble.com/users/621155/screenshots/2835314/simple_pokeball.gif',
             header: 'Null',
             meta: 'None',
             description: '...',
-            gif: 'https://c.tenor.com/_qKTUm9vp4UAAAAC/animal-crossing-crying.gif',
+            gif: 'https://cdn.dribbble.com/users/621155/screenshots/2835314/simple_pokeball.gif',
             png: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1AgnhmtdS-1bGbvvU4HzvIAMO1Tae_II9enZjPScAoKE3IGDt5JqxCA2MkxpN-4p0vLc&usqp=CAU",
             displayState: "sprite"
             

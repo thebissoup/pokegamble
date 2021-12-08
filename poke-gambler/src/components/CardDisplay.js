@@ -24,7 +24,6 @@ class CardDisplay extends Component{
             currentStyling: this.state.SpriteStyling
         })
     }
-
     
     render(){
         return(
