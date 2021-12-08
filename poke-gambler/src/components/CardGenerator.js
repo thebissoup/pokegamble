@@ -53,8 +53,10 @@ class CardGenerator extends Component{
     //Desc: takes the name of a pokemon, fetches the data, and assigns the values to state
     async fetchPokemon(name){ 
         let spriteurl = "https://pokeapi.co/api/v2/pokemon/" + name;
+        let ARurl = "https://projectpokemon.org/images/normal-sprite/" + name +".gif";
         let pokemon;
-        console.log(name);
+
+         //output the name of the pokemon
 
         await fetch(spriteurl) //fetch the pokemon data
                 .then(response => response.json())
@@ -64,15 +66,11 @@ class CardGenerator extends Component{
             return string.charAt(0).toUpperCase() + string.slice(1)
         };
 
-
-        let ARurl = "https://projectpokemon.org/images/normal-sprite/" + name +".gif";
-
-
         this.setState({
-            gif: ARurl
+            gif: ARurl //fetch 3D data
         })
 
-        if(this.state.displayState == "sprite"){
+        if(this.state.displayState == "sprite"){ //last display state
             this.setState({ //setState of card properties
                 image:pokemon.sprites.front_default, // ok for the default
                 header:labelName(pokemon.species.name),
@@ -86,16 +84,10 @@ class CardGenerator extends Component{
                 meta:labelName(pokemon.types[0].type.name),
                 png:pokemon.sprites.front_default
             }) 
-        }
-
-         
-    }
-    //-------------------------------------
-    //Desc: takes a pokemon name, fetches the info, and sets the state
-    // fetch3DPokemonGif(name){
+        } 
         
-    // }
-    //-------------------------------------
+        console.log(JSON.stringify(this.state));
+    }
     //Desc: set image state of card to 3D
     to3D(){
         this.setState({
@@ -111,6 +103,9 @@ class CardGenerator extends Component{
             displayState: "sprite"
         })
     }
+    //-------------------------------------
+    //Desc: push state object to pokewallet array
+    
     //-------------------------------------
     render(){
         return(
