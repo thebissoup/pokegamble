@@ -113,7 +113,7 @@ class CardGenerator extends Component{
                 <div style={{visibility: 'visible', paddingTop: 20}}>
                     <CardDisplay pokeData={this.state} to3D={this.to3D} to2D={this.to2D}/>
                     <Button compact color="yellow" onClick={this.getRandoPokemon}>Draw</Button>
-                    <Button compact color="red" >Collect</Button>
+                    <Button compact color="red">Collect</Button>
 
                 </div>
             </div>

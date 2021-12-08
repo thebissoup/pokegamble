@@ -7,14 +7,17 @@ class Inventory extends Component{
     constructor(props){
         super(props);
         this.state= {
-            pokelist:[]
+            pokelist:[],
+            pokewallet:[]
         } // should hold array of objects of pokemon collected from generator
 
         this.fetchPokemonList = this.fetchPokemonList.bind(this);
+        this.collectPokemon = this.collectPokemon.bind(this);
     }
     componentDidMount(){
         this.fetchPokemonList();
     }
+
     async fetchPokemonList(){
     let url="https://pokeapi.co/api/v2/pokemon?limit=1500";
     let pokemonNames=[];
@@ -29,18 +32,24 @@ class Inventory extends Component{
     
     }
     //Desc: a function that passes it's state
+    collectPokemon(state){
+        this.setState({
+            pokewallet: this.state.pokewallet.concat([state])
+        })
+
+    }
 
     render(){
         return(
             <div>
                 <h1>PokeDraw</h1>
                 <div class="ui divider"></div>
-                <CardGenerator list={this.state.pokelist}/> 
+                <CardGenerator list={this.state.pokelist} /> 
                 {/* pass collect function to card generator and pokewallet to function */}
                 <h1>Your Wallet</h1>
                 <div class="ui divider"></div>
                 <Container>
-                    <Wallet1/>
+                    <Wallet1 wallet={this.state.pokewallet} />
                 </Container>
             </div>
         )
