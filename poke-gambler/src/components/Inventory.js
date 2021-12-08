@@ -8,7 +8,7 @@ class Inventory extends Component{
         super(props);
         this.state= {
             pokelist:[]
-        }
+        } // should hold array of objects of pokemon collected from generator
 
         this.fetchPokemonList = this.fetchPokemonList.bind(this);
     }
@@ -28,12 +28,15 @@ class Inventory extends Component{
     })
     
     }
+    //Desc: a function that passes it's state
+
     render(){
         return(
             <div>
                 <h1>PokeDraw</h1>
                 <div class="ui divider"></div>
-                <CardGenerator list={this.state.pokelist}/>
+                <CardGenerator list={this.state.pokelist}/> 
+                {/* pass collect function to card generator and pokewallet to function */}
                 <h1>Your Wallet</h1>
                 <div class="ui divider"></div>
                 <Container>
