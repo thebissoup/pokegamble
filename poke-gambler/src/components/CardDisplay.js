@@ -24,7 +24,6 @@ class CardDisplay extends Component{
             currentStyling: this.state.SpriteStyling
         })
     }
-
     
     render(){
         return(
@@ -32,7 +31,7 @@ class CardDisplay extends Component{
             <div className="side-by-side">
                 <div className="card-special">
                     <div className="image-offset" >
-                        <img className={this.state.currentStyling} src={this.props.pokeData.image}/>
+                        <img alt="your drawn pokemon" className={this.state.currentStyling} src={this.props.pokeData.image}/>
                     </div>
                     <h1 className="name">{this.props.pokeData.header}</h1>
                     <p className="sub">{this.props.pokeData.meta}</p>
