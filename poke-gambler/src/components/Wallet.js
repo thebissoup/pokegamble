@@ -1,4 +1,4 @@
-import React , { Component }from 'react';
+import React from 'react';
 import {Icon, Button } from 'semantic-ui-react';
 
  // the jsx that will be modified
