@@ -44,7 +44,7 @@ class Inventory extends Component{
             <div>
                 <h1>PokeDraw</h1>
                 <div class="ui divider"></div>
-                <CardGenerator list={this.state.pokelist} /> 
+                <CardGenerator list={this.state.pokelist} collect={this.collectPokemon}/> 
                 {/* pass collect function to card generator and pokewallet to function */}
                 <h1>Your Wallet</h1>
                 <div class="ui divider"></div>
