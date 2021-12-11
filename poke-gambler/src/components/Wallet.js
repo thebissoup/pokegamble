@@ -3,7 +3,7 @@ import {Icon, Button } from 'semantic-ui-react';
 
 
 
-function Wallet1 (props){
+function Wallet1 (props){ // needs to be changed to a class component
     
     return(
         <div className=" centered grid carton-bar">
@@ -12,7 +12,7 @@ function Wallet1 (props){
                     return( <div class="column">
                                 <div key={pokemon.header} className="card-special">
                                     <div className="image-offset" >
-                                        <img alt ="Ditto" className='sprite' src={pokemon.png}/>
+                                        <img alt ="Ditto" className='ar' src={pokemon.gif}/>
                                     </div>
                                     <h1 className="name">{pokemon.header}</h1>
                                     <p className="sub">{pokemon.meta}</p>

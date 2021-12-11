@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import CardGenerator from "./CardGenerator";
 import Wallet1 from "./Wallet";
-import { Container, Popup} from 'semantic-ui-react';
+import {  Container, Popup} from 'semantic-ui-react';
 
 class Inventory extends Component{
     constructor(props){
@@ -34,7 +34,7 @@ class Inventory extends Component{
     //Desc: a function that passes it's state
     collectPokemon(state){
         this.setState({
-            pokewallet: this.state.pokewallet.concat([state])
+            pokewallet: [state].concat(this.state.pokewallet)
         })
 
     }
