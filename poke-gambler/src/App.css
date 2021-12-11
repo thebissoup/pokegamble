@@ -32,7 +32,7 @@
 }
 .card-special{
   border: 1px solid #D4D4D5;
-  margin: 20px 0 20px 0;
+  margin: 15px 0 15px 0;
   box-shadow: 0 2px 4px rgb(0 0 0 / 0.2);
   height: 340px;
   width: 230px;
@@ -51,6 +51,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scaleX(-1);
 }
 
 .sprite{
@@ -96,6 +97,20 @@ a{
 @media only screen and (max-width: 700px) {
   .carton-bar{
       grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-special{
+    margin: 10px 0px;
+  }
+  
+}
+@media only screen and (max-width: 480px) {
+  .carton-bar{
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card-special{
+    margin: 0px;
   }
   
 }

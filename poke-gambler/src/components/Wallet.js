@@ -1,22 +1,18 @@
 import React from 'react';
 import {Icon, Button } from 'semantic-ui-react';
 
- // the jsx that will be modified
 
- let pokedex = [{"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/526.png","header":"Gigalith","meta":"Rock","description":"...","gif":"https://projectpokemon.org/images/normal-sprite/gigalith.gif","png":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/526.png","displayState":"sprite"}, {"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/704.png","header":"Goomy","meta":"Dragon","description":"...","gif":"https://projectpokemon.org/images/normal-sprite/goomy.gif","png":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/704.png","displayState":"sprite"}, {"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/470.png","header":"Leafeon","meta":"Grass","description":"...","gif":"https://projectpokemon.org/images/normal-sprite/leafeon.gif","png":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/470.png","displayState":"sprite"} ];
 
- 
-
-function Wallet1 (){ // needs to be changed to a class component
-
+function Wallet1 (props){ // needs to be changed to a class component
+    
     return(
         <div className=" centered grid carton-bar">
             {
-                pokedex.map( pokemon =>{
+                props.wallet.map( pokemon =>{
                     return( <div class="column">
-                                <div className="card-special">
+                                <div key={pokemon.header} className="card-special">
                                     <div className="image-offset" >
-                                        <img alt ="Ditto" className='sprite' src={pokemon.png}/>
+                                        <img alt ="Ditto" className='ar' src={pokemon.gif}/>
                                     </div>
                                     <h1 className="name">{pokemon.header}</h1>
                                     <p className="sub">{pokemon.meta}</p>
