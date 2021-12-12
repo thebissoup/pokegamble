@@ -16,11 +16,8 @@ function Wallet1 (props){ // needs to be changed to a class component
                                     </div>
                                     <h1 className="name">{pokemon.header}</h1>
                                     <p className="sub">{pokemon.meta}</p>
-                                    <div className="card-bar">
-                                        <div>
-                                        <Button className="card-button" compact color="green">3D</Button>
-                                        <Button className="card-button" compact color="blue">2D</Button> 
-                                        </div>
+                                    <div className="wallet-card-bar">
+                                
                                         <a href='#'> 
                                         <Icon name='bitcoin' />
                                         0.000000

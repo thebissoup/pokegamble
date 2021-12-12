@@ -84,6 +84,16 @@
   align-items: center;
 }
 
+.wallet-card-bar{
+  width: 100%;
+  padding: 20px 10px 10px 10px;
+  flex-grow: 100;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
 a{
   font-size: small;
 }
