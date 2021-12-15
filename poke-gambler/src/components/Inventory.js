@@ -25,7 +25,7 @@ class Inventory extends Component{
     await fetch(url)
         .then(response => response.json())
         .then(allpokemon => pokemonNames = allpokemon);
-
+        
     this.setState({
         pokelist: pokemonNames.results
     })
@@ -36,6 +36,7 @@ class Inventory extends Component{
         this.setState({
             pokewallet: [state].concat(this.state.pokewallet)
         })
+        console.log(state);
 
     }
 

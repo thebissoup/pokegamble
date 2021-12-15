@@ -11,12 +11,12 @@ class CardGenerator extends Component{
     constructor(props){
         super(props);
         this.state = {
-            image:'https://cdn.dribbble.com/users/621155/screenshots/2835314/simple_pokeball.gif',
-            header: 'Null',
-            meta: 'None',
+            image:'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png',
+            header: 'Gardevoir',
+            meta: 'Psychic',
             description: '...',
-            gif: 'https://cdn.dribbble.com/users/621155/screenshots/2835314/simple_pokeball.gif',
-            png: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1AgnhmtdS-1bGbvvU4HzvIAMO1Tae_II9enZjPScAoKE3IGDt5JqxCA2MkxpN-4p0vLc&usqp=CAU",
+            gif: '"https://projectpokemon.org/images/normal-sprite/gardevoir.gif"',
+            png: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png",
             displayState: "sprite"
             
         }
